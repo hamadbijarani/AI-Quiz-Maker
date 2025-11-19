@@ -8,10 +8,10 @@ from pydantic import SecretStr
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from streamlit_float import float_init, float_css_helper
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts.prompt import PromptTemplate
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 try:
     asyncio.get_running_loop()
@@ -23,7 +23,7 @@ load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 FAISS_INDEX_PATH = "faiss_index"
 EMBEDDING_MODEL = "models/embedding-001"
-LLM_MODEL = "gemini-1.5-flash"
+LLM_MODEL = "gemini-2.5-flash"
 
 
 @st.cache_data(show_spinner=False)
